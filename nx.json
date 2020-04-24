@@ -25,6 +25,12 @@
     "app-e2e": {
       "tags": [],
       "implicitDependencies": ["app"]
+    },
+    "web-elements": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-components": {
+      "tags": ["scope:web", "type:ui"]
     }
   }
 }

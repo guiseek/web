@@ -120,6 +120,72 @@
           }
         }
       }
+    },
+    "web-elements": {
+      "projectType": "library",
+      "root": "libs/web/elements",
+      "sourceRoot": "libs/web/elements/src",
+      "prefix": "web",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/web/elements/tsconfig.lib.json",
+            "project": "libs/web/elements/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/web/elements/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/web/elements/tsconfig.lib.json",
+              "libs/web/elements/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/web/elements/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/web/elements/jest.config.js",
+            "tsConfig": "libs/web/elements/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/web/elements/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "web-components": {
+      "root": "libs/web/components",
+      "sourceRoot": "libs/web/components/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/web/components/tsconfig.lib.json",
+              "libs/web/components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/web/components/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/web/components/jest.config.js",
+            "tsConfig": "libs/web/components/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
