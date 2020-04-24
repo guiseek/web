@@ -31,6 +31,9 @@
     },
     "web-components": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
     }
   }
 }
