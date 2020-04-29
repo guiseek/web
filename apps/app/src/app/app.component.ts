@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { webHttp } from '@web/web/http';
+// import { webHttp } from '@web/web/http';
 
 @Component({
   selector: 'web-root',
@@ -9,7 +10,7 @@ import { webHttp } from '@web/web/http';
 export class AppComponent implements OnInit {
   title = 'app';
   subtitle = 'web';
-  constructor() {
+  constructor(private http: HttpClient) {
     window.setTimeout(() => {
       this.subtitle = 'web app';
     }, 3000);
@@ -20,11 +21,11 @@ export class AppComponent implements OnInit {
 
     console.log(webCard);
 
-    const site = webHttp({ method: 'GET', url: 'https://api.npms.io/v2/search?q=author:guiseek' });
-    site.then((res) => {
-      console.log(res);
+    this.http.get('/api')
+      .subscribe(console.log);
 
-    })
+    this.http.get('https://api.npms.io/v2/search?q=author:guiseek')
+      .subscribe(console.log);
 
     webCard.addEventListener('cardClicked', (ev) => {
       console.log(ev);
