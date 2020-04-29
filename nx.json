@@ -37,6 +37,9 @@
     },
     "api": {
       "tags": ["type:api"]
+    },
+    "training-domain": {
+      "tags": ["scope:training", "type:domain"]
     }
   }
 }

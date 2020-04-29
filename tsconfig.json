@@ -18,7 +18,8 @@
     "paths": {
       "@web/web/elements": ["libs/web/elements/src/index.ts"],
       "@web/web/components": ["libs/web/components/src/index.ts"],
-      "@web/shared/assets": ["libs/shared/assets/src/index.ts"]
+      "@web/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@web/training/domain": ["libs/training/domain/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
