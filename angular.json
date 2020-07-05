@@ -80,7 +80,7 @@
               "apps/app/tsconfig.app.json",
               "apps/app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/app/**"]
+            "exclude": ["**/node_modules/**", "!apps/app/**/*"]
           }
         },
         "test": {
@@ -116,7 +116,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/app-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/app-e2e/**/*"]
           }
         }
       }
