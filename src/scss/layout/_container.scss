@@ -1,0 +1,18 @@
+.container {
+  &.pancake {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    /* Just for parent demo size */
+    height: 100vh;
+  }
+
+  .fluffy-center {
+    // padding: 15vmin;
+  }
+  .fluffy-center {
+    display: flex;
+    place-content: center;
+    /* any large amount of padding works */
+  }
+}
