@@ -3,7 +3,13 @@
     :host {
       display: block;
       padding: 4px 2px 0 0;
-      accent-color: #fff;
+      accent-color: #000;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :host {
+        accent-color: #fff;
+      }
     }
     
     :host input:focus {
@@ -26,7 +32,7 @@
   </style>
 
   <label>
-    <input type="checkbox" id="cond1" />
+    <input type="checkbox" />
     <slot></slot>
   </label>
 </template>

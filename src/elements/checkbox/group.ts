@@ -14,6 +14,7 @@ export class CheckboxGroupElement extends HTMLElement {
 
     queueMicrotask(() => {
       this.checkboxNodes.forEach((node) => {
+        node.onkeydown = this.onCheckboxKeydown.bind(this)
         node.onclick = this.onCheckboxClick.bind(this)
         node.onfocus = this.onCheckboxFocus.bind(this)
         node.onblur = this.onCheckboxBlur.bind(this)
@@ -21,6 +22,9 @@ export class CheckboxGroupElement extends HTMLElement {
       })
 
       this.updateMixed()
+
+      const ids = Array.from(this.checkboxNodes).map(({id}) => id)
+      this.mixedNode.setAttribute('aria-controls', ids.join(' '))
     })
   }
 
@@ -133,6 +137,30 @@ export class CheckboxGroupElement extends HTMLElement {
 
   onMixedBlur() {
     this.mixedNode.classList.remove('focus')
+  }
+
+  onCheckboxKeydown(event: KeyboardEvent) {
+    let flag = false
+
+    switch (event.key) {
+      case ' ': {
+        const target = this.getCurreentTarget<CheckboxInputElement>(event)
+        target.control.lastState = target.checked
+        target.control.checked = !target.control.checked
+        this.updateMixed()
+        flag = true
+        break
+      }
+
+      default: {
+        break
+      }
+    }
+
+    if (flag) {
+      event.stopPropagation()
+      event.preventDefault()
+    }
   }
 
   onCheckboxClick(event: MouseEvent) {

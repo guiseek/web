@@ -1,39 +1,130 @@
 @import './scss/layout';
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  color-scheme: dark light;
 
-  color-scheme: light dark;
-  // color: rgba(255, 255, 255, 0.87);
-  background-color: #11071f;
+  /* destructure brand channels */
+  --hue: 200; /* change me!! */
+  --saturation: 100%;
+  --lightness: 50%;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  /* build colors with props */
+  --brand: hsl(
+    var(--hue)
+    var(--saturation)
+    var(--lightness)
+  );
+
+  /* very dark brand blue */
+  --text: hsl(
+    var(--hue)
+    var(--saturation)
+    10% /* lower is darker */
+  );
+
+  /* very bright brand white */
+  --surface: hsl(
+    var(--hue)
+    calc(var(--saturation) / 2)
+    95% /* higher is lighter */
+  );
 }
 
-// .container {
-//   display: grid;
-//   grid-template-rows: auto 1fr auto;
+h1 {
+  font-size: 10vmin;
+  font-weight: 300;
+}
 
-//   /* Just for parent demo size */
-//   height: 100vh;
+b {
+  color: hsl(
+    var(--hue)
+    var(--saturation)
+    30%
+  );
+}
+
+u {
+  text-decoration-color: var(--brand);
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  color: var(--text);
+  background: var(--surface);
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* just tweak the lightness */
+  /* maybe desaturate too */
+
+  :root {
+    --text: hsl(
+      var(--hue)
+      calc(var(--saturation) / 2)
+      85%
+    );
+
+    --surface: hsl(
+      var(--hue)
+      var(--saturation)
+      5%
+    );
+  }
+
+  b {
+    color: hsl(
+      var(--hue)
+      var(--saturation)
+      75%
+    );
+  }
+}
+
+// :root {
+//   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+//   font-size: 16px;
+//   line-height: 24px;
+//   font-weight: 400;
+
+//   color-scheme: light dark;
+//   // color: rgba(255, 255, 255, 0.87);
+//   // background-color: #11071f;
+
+//   font-synthesis: none;
+//   text-rendering: optimizeLegibility;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-text-size-adjust: 100%;
 // }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
+// // .container {
+// //   display: grid;
+// //   grid-template-rows: auto 1fr auto;
+
+// //   /* Just for parent demo size */
+// //   height: 100vh;
+// // }
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   display: flex;
+//   flex-direction: column;
+// }
 
 // a {
 //   font-weight: 500;
