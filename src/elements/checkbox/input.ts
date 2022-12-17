@@ -11,6 +11,7 @@ export class CheckboxInputElement extends HTMLElement {
   static observedAttributes = ['id', 'name', 'checked']
 
   name = ''
+  checked?: string
 
   get control(): HTMLInputElement {
     return this.shadow.querySelector(

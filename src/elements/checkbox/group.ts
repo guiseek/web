@@ -18,10 +18,15 @@ export class CheckboxGroupElement extends HTMLElement {
         node.onclick = this.onCheckboxClick.bind(this)
         node.onfocus = this.onCheckboxFocus.bind(this)
         node.onblur = this.onCheckboxBlur.bind(this)
-        node.dataset.lastState = `${node.control.checked}`
+        const checked =
+          node.getAttribute('checked') === '' ?? node.control.checked
+        console.log(checked)
+        node.dataset.lastState = `${checked}`
+        node.control.checked = checked
+
+        this.updateMixed()
       })
 
-      this.updateMixed()
 
       const ids = Array.from(this.checkboxNodes).map(({id}) => id)
       this.mixedNode.setAttribute('aria-controls', ids.join(' '))
@@ -145,7 +150,7 @@ export class CheckboxGroupElement extends HTMLElement {
     switch (event.key) {
       case ' ': {
         const target = this.getCurreentTarget<CheckboxInputElement>(event)
-        target.control.lastState = target.checked
+        target.lastState = target.control.checked
         target.control.checked = !target.control.checked
         this.updateMixed()
         flag = true
