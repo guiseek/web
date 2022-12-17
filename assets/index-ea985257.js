@@ -293,7 +293,7 @@ var y=Object.defineProperty;var k=(o,e,t)=>e in o?y(o,e,{enumerable:!0,configura
     <slot name="input"></slot>
   </div>
 </template>
-`;var O=Object.defineProperty,N=Object.getOwnPropertyDescriptor,S=(o,e,t,n)=>{for(var i=n>1?void 0:n?N(e,t):e,s=o.length-1,l;s>=0;s--)(l=o[s])&&(i=(n?l(e,t,i):l(i))||i);return n&&i&&O(e,t,i),i},h;let u=(h=class extends HTMLElement{connectedCallback(){this.mixedNode.onkeydown=this.onMixedKeydown.bind(this),this.mixedNode.onclick=this.onMixedClick.bind(this),this.mixedNode.onfocus=this.onMixedFocus.bind(this),this.mixedNode.onblur=this.onMixedBlur.bind(this),queueMicrotask(()=>{this.checkboxNodes.forEach(e=>{e.onkeydown=this.onCheckboxKeydown.bind(this),e.onclick=this.onCheckboxClick.bind(this),e.onfocus=this.onCheckboxFocus.bind(this),e.onblur=this.onCheckboxBlur.bind(this),e.dataset.lastState=`${e.control.checked}`}),this.updateMixed();const o=Array.from(this.checkboxNodes).map(({id:e})=>e);this.mixedNode.setAttribute("aria-controls",o.join(" "))})}attributeChangedCallback(o,e,t){o==="label"&&t!==e&&(this.mixedNode.textContent=t)}updateMixed(){const e=Array.from(this.checkboxNodes).filter(({control:t})=>t.checked);e.length===0?this.mixedNode.ariaChecked="false":e.length===this.checkboxNodes.length?this.mixedNode.ariaChecked="true":(this.mixedNode.ariaChecked="mixed",this.updateCheckboxStates())}updateCheckboxStates(){this.checkboxNodes.forEach(o=>{o.dataset.lastState=`${o.control.checked}`})}get anyLastChecked(){return Array.from(this.checkboxNodes).filter(({dataset:e})=>e.lastState=="true").length>0}setCheckboxes(o){this.checkboxNodes.forEach(e=>{switch(o){case"last":{e.control.checked=e.dataset.lastState==="true";break}case"true":{e.control.checked=!0;break}default:{e.control.checked=!1;break}}}),this.updateMixed()}toggleMixed(){const o=this.mixedNode.ariaChecked;o==="false"?this.anyLastChecked?this.setCheckboxes("last"):this.setCheckboxes("true"):o==="mixed"?this.setCheckboxes("true"):this.setCheckboxes("false"),this.updateMixed()}onMixedKeydown(o){let e=!1;switch(o.key){case" ":{this.toggleMixed(),e=!0;break}}e&&(o.stopPropagation(),o.preventDefault())}onMixedClick(){this.toggleMixed()}onMixedFocus(){this.mixedNode.classList.add("focus")}onMixedBlur(){this.mixedNode.classList.remove("focus")}onCheckboxKeydown(o){let e=!1;switch(o.key){case" ":{const t=this.getCurreentTarget(o);t.control.lastState=t.checked,t.control.checked=!t.control.checked,this.updateMixed(),e=!0;break}}e&&(o.stopPropagation(),o.preventDefault())}onCheckboxClick(o){const e=this.getCurreentTarget(o);e.dataset.lastState=e.checked,this.updateMixed()}onCheckboxFocus(o){this.getCurreentTarget(o,"parentNode").classList.add("focus")}onCheckboxBlur(o){this.getCurreentTarget(o,"parentNode").classList.remove("focus")}getCurreentTarget(o,e){const t=o.target;return e?t[e]:t}get shadow(){return this.shadowRoot}get mixedNode(){return this.shadow.querySelector('[role="checkbox"]')}get checkboxNodes(){return this.querySelectorAll("checkbox-input")}},r(h,"observedAttributes",["label"]),h);u=S([a({name:"checkbox-group",template:H})],u);const A=`<template>
+`;var O=Object.defineProperty,N=Object.getOwnPropertyDescriptor,S=(o,e,t,n)=>{for(var i=n>1?void 0:n?N(e,t):e,s=o.length-1,l;s>=0;s--)(l=o[s])&&(i=(n?l(e,t,i):l(i))||i);return n&&i&&O(e,t,i),i},h;let u=(h=class extends HTMLElement{connectedCallback(){this.mixedNode.onkeydown=this.onMixedKeydown.bind(this),this.mixedNode.onclick=this.onMixedClick.bind(this),this.mixedNode.onfocus=this.onMixedFocus.bind(this),this.mixedNode.onblur=this.onMixedBlur.bind(this),queueMicrotask(()=>{this.checkboxNodes.forEach(e=>{e.onkeydown=this.onCheckboxKeydown.bind(this),e.onclick=this.onCheckboxClick.bind(this),e.onfocus=this.onCheckboxFocus.bind(this),e.onblur=this.onCheckboxBlur.bind(this);const t=e.getAttribute("checked")==="";console.log(t),e.dataset.lastState=`${t}`,e.control.checked=t,this.updateMixed()});const o=Array.from(this.checkboxNodes).map(({id:e})=>e);this.mixedNode.setAttribute("aria-controls",o.join(" "))})}attributeChangedCallback(o,e,t){o==="label"&&t!==e&&(this.mixedNode.textContent=t)}updateMixed(){const e=Array.from(this.checkboxNodes).filter(({control:t})=>t.checked);e.length===0?this.mixedNode.ariaChecked="false":e.length===this.checkboxNodes.length?this.mixedNode.ariaChecked="true":(this.mixedNode.ariaChecked="mixed",this.updateCheckboxStates())}updateCheckboxStates(){this.checkboxNodes.forEach(o=>{o.dataset.lastState=`${o.control.checked}`})}get anyLastChecked(){return Array.from(this.checkboxNodes).filter(({dataset:e})=>e.lastState=="true").length>0}setCheckboxes(o){this.checkboxNodes.forEach(e=>{switch(o){case"last":{e.control.checked=e.dataset.lastState==="true";break}case"true":{e.control.checked=!0;break}default:{e.control.checked=!1;break}}}),this.updateMixed()}toggleMixed(){const o=this.mixedNode.ariaChecked;o==="false"?this.anyLastChecked?this.setCheckboxes("last"):this.setCheckboxes("true"):o==="mixed"?this.setCheckboxes("true"):this.setCheckboxes("false"),this.updateMixed()}onMixedKeydown(o){let e=!1;switch(o.key){case" ":{this.toggleMixed(),e=!0;break}}e&&(o.stopPropagation(),o.preventDefault())}onMixedClick(){this.toggleMixed()}onMixedFocus(){this.mixedNode.classList.add("focus")}onMixedBlur(){this.mixedNode.classList.remove("focus")}onCheckboxKeydown(o){let e=!1;switch(o.key){case" ":{const t=this.getCurreentTarget(o);t.lastState=t.control.checked,t.control.checked=!t.control.checked,this.updateMixed(),e=!0;break}}e&&(o.stopPropagation(),o.preventDefault())}onCheckboxClick(o){const e=this.getCurreentTarget(o);e.dataset.lastState=e.checked,this.updateMixed()}onCheckboxFocus(o){this.getCurreentTarget(o,"parentNode").classList.add("focus")}onCheckboxBlur(o){this.getCurreentTarget(o,"parentNode").classList.remove("focus")}getCurreentTarget(o,e){const t=o.target;return e?t[e]:t}get shadow(){return this.shadowRoot}get mixedNode(){return this.shadow.querySelector('[role="checkbox"]')}get checkboxNodes(){return this.querySelectorAll("checkbox-input")}},r(h,"observedAttributes",["label"]),h);u=S([a({name:"checkbox-group",template:H})],u);const A=`<template>
   <style>
     :host {
       display: block;
@@ -331,30 +331,12 @@ var y=Object.defineProperty;var k=(o,e,t)=>e in o?y(o,e,{enumerable:!0,configura
     <slot></slot>
   </label>
 </template>
-`;var F=Object.defineProperty,P=Object.getOwnPropertyDescriptor,V=(o,e,t,n)=>{for(var i=n>1?void 0:n?P(e,t):e,s=o.length-1,l;s>=0;s--)(l=o[s])&&(i=(n?l(e,t,i):l(i))||i);return n&&i&&F(e,t,i),i};let D=0;var d;let f=(d=class extends HTMLElement{constructor(){super(...arguments);r(this,"name","")}get control(){return this.shadow.querySelector('input[type="checkbox"]')}connectedCallback(){this.setAttribute("slot","input"),this.control.tabIndex=-1,this.tabIndex=0,this.id||(this.control.id=`${D++}`)}get shadow(){return this.shadowRoot}},r(d,"observedAttributes",["id","name","checked"]),d);f=V([a({template:A,name:"checkbox-input"})],f);const _=`<template>
+`;var F=Object.defineProperty,P=Object.getOwnPropertyDescriptor,V=(o,e,t,n)=>{for(var i=n>1?void 0:n?P(e,t):e,s=o.length-1,l;s>=0;s--)(l=o[s])&&(i=(n?l(e,t,i):l(i))||i);return n&&i&&F(e,t,i),i};let D=0;var d;let f=(d=class extends HTMLElement{constructor(){super(...arguments);r(this,"name","");r(this,"checked")}get control(){return this.shadow.querySelector('input[type="checkbox"]')}connectedCallback(){this.setAttribute("slot","input"),this.control.tabIndex=-1,this.tabIndex=0,this.id||(this.control.id=`${D++}`)}get shadow(){return this.shadowRoot}},r(d,"observedAttributes",["id","name","checked"]),d);f=V([a({template:A,name:"checkbox-input"})],f);const _=`<template>
   <style>
     :host {
       display: inline-flex;
       padding: 4px 2px 1px 4px;
     }
-/* 
-    :host input:focus {
-      outline: none;
-    }
-
-    :host label {
-      padding: 0 5px 0 2px;
-      display: inline-flex;
-      align-items: center;
-      column-gap: 6px;
-      border: 2px solid transparent;
-      border-radius: 5px;
-    }
-    :host label.focus,
-    :host label:hover {
-      border: 2px solid #005a9c;
-      cursor: pointer;
-    } */
   </style>
 
   <slot></slot>
