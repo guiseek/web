@@ -18,9 +18,9 @@ export class CheckboxGroupElement extends HTMLElement {
         node.onclick = this.onCheckboxClick.bind(this)
         node.onfocus = this.onCheckboxFocus.bind(this)
         node.onblur = this.onCheckboxBlur.bind(this)
-        const checked =
-          node.getAttribute('checked') === '' ?? node.control.checked
-        console.log(checked)
+        const nodeChecked = node.getAttribute('checked') === ''
+        const ctrlChecked = node.control.checked
+        const checked = nodeChecked ?? ctrlChecked
         node.dataset.lastState = `${checked}`
         node.control.checked = checked
 

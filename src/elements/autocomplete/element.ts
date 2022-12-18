@@ -67,8 +67,21 @@ export class AutocompleteListElement extends HTMLElement {
     if (button instanceof HTMLButtonElement) {
       button.addEventListener('click', this.onButtonClick.bind(this))
     }
-    // if (button && button.tagName === 'BUTTON') {
-    // }
+  }
+
+  addOption(label: string, value: string) {
+    const option = document.createElement('li')
+    option.role = 'option'
+    option.slot = 'option'
+    option.textContent = label
+    option.id = value
+
+    option.onclick = this.onOptionClick.bind(this)
+    option.onpointerover = this.onOptionPointerover.bind(this)
+    option.onpointerout = this.onOptionPointerout.bind(this)
+
+    this.listboxNode.appendChild(option)
+    this.allOptions.push(option)
   }
 
   // ComboboxAutocomplete Events
